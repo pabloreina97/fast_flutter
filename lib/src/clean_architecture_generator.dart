@@ -9,6 +9,7 @@ class CleanArchitectureGenerator extends Generator {
   FutureOr<String> generate(LibraryReader library, BuildStep buildStep) async {
     final configAsset = AssetId(buildStep.inputId.package, 'clean_architecture_config.yaml');
     final configContent = await buildStep.readAsString(configAsset);
+    print(configContent);
     final config = loadYaml(configContent);
 
     final modelGenerator = ModelGenerator();
@@ -17,7 +18,7 @@ class CleanArchitectureGenerator extends Generator {
       final modelContent = modelGenerator.generate(entity);
       final modelFile = AssetId(
         buildStep.inputId.package,
-        'lib/infrastructure/models/${entity['name'].toLowerCase()}_model.dart',
+        'lib/infrastructure/models/${entity['name'].toLowerCase()}_model.g.dart',
       );
       await buildStep.writeAsString(modelFile, modelContent);
     }
