@@ -64,7 +64,7 @@ class ModelGenerator {
         return 'List<dynamic>.from(json["$fieldName"])';
       default:
         if (fieldType.endsWith('Model')) {
-          return '${fieldType}.fromJson(json["$fieldName"])';
+          return '$fieldType.fromJson(json["$fieldName"])';
         }
         return 'json["$fieldName"]';
     }
