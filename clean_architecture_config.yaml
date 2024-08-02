@@ -1,0 +1,15 @@
+entities:
+  - name: Box
+    fields:
+      - name: id
+        type: int
+      - name: name
+        type: String
+      - name: address
+        type: String
+      - name: phone
+        type: String
+      - name: managers
+        type: List<String>
+      - name: coaches
+        type: List<String>
