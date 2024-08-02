@@ -1,0 +1,5 @@
+targets:
+  $default:
+    builders:
+      fast_flutter|clean_architecture_builder:
+        enabled: true
